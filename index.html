@@ -14,7 +14,7 @@
       }
 
       body {
-        height: 100vh;
+        min-height: 100vh;
         background: linear-gradient(135deg, #020b18, #071327, #0b1f3a);
         display: flex;
         justify-content: center;
@@ -46,8 +46,14 @@
       }
 
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .heading {
@@ -112,9 +118,48 @@
         margin-top: 20px;
         padding: 15px;
         border-radius: 15px;
-        background: rgba(255,255,255,0.06);
+        background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(0, 225, 255, 0.2);
-        box-shadow: 0 0 10px rgba(0,225,255,0.15);
+        box-shadow: 0 0 10px rgba(0, 225, 255, 0.15);
+      }
+
+      @media (max-width: 480px) {
+        .search {
+          flex-direction: column;
+        }
+
+        .searchBtn {
+          width: 100%;
+        }
+
+        .city {
+          width: 100%;
+        }
+
+        .heading {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .card {
+          padding: 25px 20px;
+        }
+
+        .heading {
+          font-size: 1.6rem;
+        }
+
+        #result {
+          font-size: 1rem;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .card {
+          max-width: 500px;
+          padding: 50px 40px;
+        }
       }
     </style>
   </head>
@@ -124,7 +169,12 @@
       <h1 class="heading">AtmosIQ</h1>
 
       <div class="search">
-        <input id="cityInput" type="text" placeholder="Enter city..." class="city" />
+        <input
+          id="cityInput"
+          type="text"
+          placeholder="Enter city..."
+          class="city"
+        />
         <button id="searchBtn" class="searchBtn">SEARCH</button>
       </div>
 
